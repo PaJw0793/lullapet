@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My"
+rootProject.name = "mongcare"
 include(":app")
  
