@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Rate Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #0077cc;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+        main {
+            margin-top: 2rem;
+        }
+        p {
+            background: #fff;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Real-time Heart Rate Data</h1>
+    </header>
+    <main id="content">
+        <p>Loading data...</p>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA3CFk92ZXejqmldBTJY-bnDPD0pZUwiIE",
+            authDomain: "codepare-43e89.firebaseapp.com",
+            databaseURL: "https://codepare-43e89-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "codepare-43e89",
+            storageBucket: "codepare-43e89.appspot.com",
+            messagingSenderId: "529778093294",
+            appId: "1:529778093294:web:655889fd57ac4535d357ff",
+            measurementId: "G-M3N3CB110W"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+
+        const dataRef = ref(database, '/sensor/Wearable/device1/sensorData');
+        const contentElement = document.getElementById('content');
+
+        onValue(dataRef, (snapshot) => {
+            const data = snapshot.val();
+            contentElement.innerHTML = '';
+            if (data) {
+                Object.entries(data).forEach(([key, value]) => {
+                    const p = document.createElement('p');
+                    p.textContent = `${key}: ${JSON.stringify(value)}`;
+                    contentElement.appendChild(p);
+                });
+            } else {
+                contentElement.textContent = 'No data available.';
+            }
+        }, {
+            onlyOnce: false
+        });
+    </script>
+</body>
+
+</html>

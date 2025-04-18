@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 // 수정: 올바른 R 파일 임포트
-
 class MainActivity : AppCompatActivity(), MainView {  // MainView 인터페이스 구현
     private lateinit var etInput: EditText
     private lateinit var btnProcess: Button
