@@ -1,18 +1,11 @@
 package com.example.mongcare
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import com.example.mongcare.ui.MainScreen
-import com.example.mongcare.ui.theme.MongCareTheme
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            MongCareTheme {
-                MainScreen()
-            }
-        }
+        setContentView(R.layout.activity_main)
     }
 }
