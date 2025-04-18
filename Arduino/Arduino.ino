@@ -2,16 +2,16 @@
 #include <FirebaseESP8266.h>
 
 // Wi-Fi 설정
-const char* ssid = "알고학원";        // Wi-Fi 이름
-const char* password = "0552465556"; // Wi-Fi 비밀번호
+const char* ssid = "알고학원";
+const char* password = "0552465556";
 
 // Firebase 설정
-#define FIREBASE_HOST "codepare-43e89-default-rtdb.europe-west1.firebasedatabase.app"  // Firebase 실시간 데이터베이스 URL
-#define FIREBASE_AUTH "AIzaSyDl-uISgpsxK4cJIOFc1bYTrdfiLIT6RXE"  // Firebase 인증 토큰
+#define FIREBASE_HOST "codepare-43e89-default-rtdb.europe-west1.firebasedatabase.app"
+#define FIREBASE_AUTH "AIzaSyDl-uISgpsxK4cJIOFc1bYTrdfiLIT6RXE"
 
-FirebaseData firebaseData;  // Firebase 데이터 객체
-FirebaseAuth auth;          // Firebase 인증 객체
-FirebaseConfig config;      // Firebase 설정 객체
+FirebaseData firebaseData;
+FirebaseAuth auth;
+FirebaseConfig config;
 
 void setup() {
     Serial.begin(115200);
@@ -31,26 +31,28 @@ void setup() {
     config.host = FIREBASE_HOST;
     config.signer.tokens.legacy_token = FIREBASE_AUTH;
 
-    Firebase.begin(&config, &auth);  // Firebase 시작
+    Firebase.begin(&config, &auth);
     Firebase.reconnectWiFi(true);
 
     Serial.println("Firebase 연결 완료!");
-
-    // Firebase에 데이터 전송 테스트
-    if (Firebase.setString(firebaseData, "/sensor/temp", "25.5")) {
-        Serial.println("데이터 업로드 성공!");
-    } else {
-        Serial.println("데이터 업로드 실패: " + firebaseData.errorReason());
-    }
 }
 
 void loop() {
-    // 10초마다 Firebase 업데이트
-    float temperature = random(20, 30); // 임의 온도값 생성
-    if (Firebase.setFloat(firebaseData, "/sensor/temp", temperature)) {
-        Serial.println("업데이트 완료: " + String(temperature));
+    // 1. Firebase에 온도 데이터 업로드
+    float temperature = random(20, 30); // 가상의 온도 데이터 생성
+    if (Firebase.setFloat(firebaseData, "/sensor/Wearable/device2/sensorData/heartRate", temperature)) {
+        Serial.println("온도 데이터 업로드 성공: " + String(temperature));
     } else {
-        Serial.println("업데이트 실패: " + firebaseData.errorReason());
+        Serial.println("온도 데이터 업로드 실패: " + firebaseData.errorReason());
     }
-    delay(10000); // 10초 대기
+
+    // 2. Firebase에서 값 읽기 테스트
+    if (Firebase.getInt(firebaseData, "/sensor/Wearable/device2/sensorData/heartRate")) {
+        int value = firebaseData.intData();
+        Serial.println("Firebase 값 확인됨: " + String(value));
+    } else {
+        Serial.println("값 읽기 실패: " + firebaseData.errorReason());
+    }
+
+    delay(5000); // 5초 대기 후 반복
 }
