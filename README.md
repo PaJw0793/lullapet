@@ -3,7 +3,7 @@
 
 디자인
 ![image](https://github.com/user-attachments/assets/cf0c9c9d-3390-4c40-8e14-0ec4e14523dc)
-![image](https://github.com/user-attachments/assets/666e1df5-59a6-44d9-87c3-de022fe4a95d)
+![image](https://github.com/user-attachments/assets/af3c5fc5-3b64-4b29-8e07-c5df0eb58398)
 ![image](https://github.com/user-attachments/assets/7b88bea5-03a1-485f-98ba-e219b7c4492c)
 ![image](https://github.com/user-attachments/assets/f1cafa37-19f6-49df-911c-146b0285ee1b)
 ![image](https://github.com/user-attachments/assets/e41203ef-e626-4cdf-b722-c7d6d4cce3fa)
