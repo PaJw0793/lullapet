@@ -1,5 +1,4 @@
-package com.example.mongcare  // ← 너가 실제 사용하는 패키지명으로!
-
+package com.example.mongcare
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
