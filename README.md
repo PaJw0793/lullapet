@@ -1,7 +1,7 @@
 # codefair
 2025 code fair high school team
-
 디자인
+
 ![image](https://github.com/user-attachments/assets/cf0c9c9d-3390-4c40-8e14-0ec4e14523dc)
 ![image](https://github.com/user-attachments/assets/af3c5fc5-3b64-4b29-8e07-c5df0eb58398)
 ![image](https://github.com/user-attachments/assets/7b88bea5-03a1-485f-98ba-e219b7c4492c)
