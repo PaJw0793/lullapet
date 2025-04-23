@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
     Scaffold(
@@ -53,23 +54,48 @@ fun MainScreen() {
             Text("오늘도 건강하게!", style = MaterialTheme.typography.titleMedium)
 
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                FeatureCard("건강 체크", Icons.Default.Favorite, Color(0xFFFFCDD2))
-                FeatureCard("기록 보기", Icons.Default.History, Color(0xFFBBDEFB))
+                FeatureCard(
+                    title = "건강 체크",
+                    icon = Icons.Default.Favorite,
+                    backgroundColor = Color(0xFFFFCDD2),
+                    modifier = Modifier.weight(1f)
+                )
+                FeatureCard(
+                    title = "기록 보기",
+                    icon = Icons.Default.History,
+                    backgroundColor = Color(0xFFBBDEFB),
+                    modifier = Modifier.weight(1f)
+                )
             }
 
+
             Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                FeatureCard("운동 추천", Icons.Default.FitnessCenter, Color(0xFFC8E6C9))
-                FeatureCard("식단 관리", Icons.Default.Restaurant, Color(0xFFFFF9C4))
+                FeatureCard(
+                    title = "운동 추천",
+                    icon = Icons.Default.Favorite,
+                    backgroundColor = Color(0xFFFFCDD2),
+                    modifier = Modifier.weight(1f)
+                )
+                FeatureCard(
+                    title = "식단 관리",
+                    icon = Icons.Default.History,
+                    backgroundColor = Color(0xFFBBDEFB),
+                    modifier = Modifier.weight(1f)
+                )
             }
         }
     }
 }
 
 @Composable
-fun FeatureCard(title: String, icon: ImageVector, backgroundColor: Color) {
+fun FeatureCard(
+    title: String,
+    icon: ImageVector,
+    backgroundColor: Color,
+    modifier: Modifier = Modifier
+) {
     Card(
-        modifier = Modifier
-            .weight(1f)
+        modifier = modifier
             .aspectRatio(1f),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = backgroundColor),
