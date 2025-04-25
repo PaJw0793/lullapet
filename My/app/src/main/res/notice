@@ -1,0 +1,22 @@
+app/
+├── model/
+│   └── DataModel.kt
+├── presenter/
+│   ├── MainPresenter.kt
+│   ├── WalkTimePresenter.kt
+│   ├── AIRecommendationPresenter.kt
+│   ├── WearableStatusPresenter.kt
+│   ├── SettingsPresenter.kt
+│   ├── DeviceConnectionPresenter.kt
+│   └── AppInfoPresenter.kt
+├── view/
+│   ├── MainActivity.kt
+│   ├── MainView.kt
+│   ├── fragments/
+│   │   ├── MainFragment.kt
+│   │   ├── WalkTimeFragment.kt
+│   │   ├── AIRecommendationFragment.kt
+│   │   ├── WearableStatusFragment.kt
+│   │   ├── SettingsFragment.kt
+│   │   ├── DeviceConnectionFragment.kt
+│   │   └── AppInfoFragment.kt

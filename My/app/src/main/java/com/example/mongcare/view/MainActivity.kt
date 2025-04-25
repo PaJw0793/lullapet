@@ -1,4 +1,4 @@
-package com.example.mongcare
+package com.example.mongcare.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
