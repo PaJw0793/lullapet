@@ -6,4 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="first_fragment_label">First Fragment</string>
+    <string name="desc_settings_button">설정 버튼</string>
+    <string name="desc_send_button">메시지 보내기</string>
+    <string name="desc_back_button">뒤로가기</string>
 </resources>
