@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/version_info_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/version_info_back_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@null"
+        android:contentDescription="@string/desc_back_button"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/version_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="앱 및 기기 버전"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/version_info_back_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <!-- Version Content -->
+    <TextView
+        android:id="@+id/version_info_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여기 버전 및 상세 정보"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/version_info_title"
+        app:layout_constraintTop_margin="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
