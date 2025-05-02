@@ -1,4 +1,4 @@
-package com.example.mongcare
+package com.example.mongcare.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,15 +28,15 @@ class AIRecommendationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         chatAdapter = ChatAdapter()
-        binding.chatRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.chatRecyclerView.adapter = chatAdapter
+        binding.aiChatRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.aiChatRecyclerView.adapter = chatAdapter
 
-        binding.sendButton.setOnClickListener {
-            val message = binding.messageEditText.text.toString().trim()
+        binding.aiSendButton.setOnClickListener {
+            val message = binding.aiMessageEditText.text.toString().trim()
             if (message.isNotEmpty()) {
                 chatAdapter.addMessage(ChatMessage(sender = "주인", content = message))
-                chatAdapter.addMessage(ChatMessage(sender = "AI", content = "~~~~~ 이런식으로 하면 강아지가 편안한 숙면을 취할 수 있을거에요!"))
-                binding.messageEditText.text.clear()
+                chatAdapter.addMessage(ChatMessage(sender = "AI", content = "숙면 환경을 위해 조도는 20%, 온도는 24도를 권장합니다."))
+                binding.aiMessageEditText.text.clear()
             } else {
                 Toast.makeText(requireContext(), "메시지를 입력하세요", Toast.LENGTH_SHORT).show()
             }
@@ -44,6 +44,13 @@ class AIRecommendationFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}
+
+
+override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import your.package.name.databinding.FragmentSettingsBinding
+import com.example.mongcare.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
 
@@ -23,24 +23,20 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 뒤로가기 버튼
         binding.settingsBackButton.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        // 기기 연결 상태 확인 버튼 클릭 이벤트
         binding.settingsDeviceStatusButton.setOnClickListener {
-            // TODO: 연결 상태 확인 화면으로 이동 or 동작 수행
+            // TODO: 연결 상태 확인 화면으로 이동
         }
 
-        // 버전 확인 버튼 클릭 이벤트
         binding.settingsVersionButton.setOnClickListener {
-            // TODO: 앱 및 기기 버전 정보 표시
+            // TODO: 버전 정보 화면으로 이동
         }
 
-        // 스위치 상태 변경 리스너
         binding.settingsAutoToggleSwitch.setOnCheckedChangeListener { _, isChecked ->
-            // TODO: 스위치 상태 저장 or 동작 수행
+            // TODO: 상태 저장
         }
     }
 

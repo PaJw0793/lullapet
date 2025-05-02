@@ -10,7 +10,7 @@
         android:id="@+id/senderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="보낸사람"
+        android:text="##"
         android:textStyle="bold"
         android:textSize="14sp"
         app:layout_constraintTop_toTopOf="parent"
