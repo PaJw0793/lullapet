@@ -8,6 +8,9 @@ android {
     namespace = "com.example.mongcare"
     compileSdk = 35
 
+    buildFeatures {
+        dataBinding = true
+    }
     defaultConfig {
         applicationId = "com.example.mongcare"
         minSdk = 35

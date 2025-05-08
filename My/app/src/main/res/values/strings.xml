@@ -10,4 +10,7 @@
     <string name="desc_send_button">메시지 보내기</string>
     <string name="desc_back_button">뒤로가기</string>
     <string name="desc_auto_toggle">주기 자동 설정 스위치</string>
+    <string name="desc_dog2_icon" />
+    <string name="desc_dog1_icon" />
+    <string name="desc_cat_icon" />
 </resources>
