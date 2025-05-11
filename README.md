@@ -19,3 +19,7 @@
 
 ![image](https://github.com/user-attachments/assets/20c86e6a-dd77-4451-9f8d-ccc3dafec1c2)
 ![image](https://github.com/user-attachments/assets/2bc5e4b7-ddee-44b9-8e32-8cd5af9b88bc)
+
+* 선정한 SW Stack
+
+![image](https://github.com/user-attachments/assets/db769a6d-5b6f-4c96-8a24-0e1ebfe4fe9e)
