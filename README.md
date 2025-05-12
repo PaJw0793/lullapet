@@ -1,15 +1,29 @@
-# codefair
-2025 code fair high school team
+# Lullappet
 
-디자인
+* 개요
 
-![image](https://github.com/user-attachments/assets/cf0c9c9d-3390-4c40-8e14-0ec4e14523dc)
-![image](https://github.com/user-attachments/assets/af3c5fc5-3b64-4b29-8e07-c5df0eb58398)
-![image](https://github.com/user-attachments/assets/7b88bea5-03a1-485f-98ba-e219b7c4492c)
-![image](https://github.com/user-attachments/assets/f1cafa37-19f6-49df-911c-146b0285ee1b)
-![image](https://github.com/user-attachments/assets/e41203ef-e626-4cdf-b722-c7d6d4cce3fa)
-![image](https://github.com/user-attachments/assets/f3b3b434-0a0c-4a8d-a9b3-67d3d51c4ac5)
-![image](https://github.com/user-attachments/assets/7434830d-ae3a-4b0f-8397-879af3ff0973)
-![image](https://github.com/user-attachments/assets/bf6c0e89-0ddf-4323-9ba8-edb1f1b441ca)
-![image](https://github.com/user-attachments/assets/a9a74c2e-e9c1-4b6c-8133-8faffe89bacd)
-![image](https://github.com/user-attachments/assets/28828382-9818-4fc1-9581-7674da0240db)
+  - Lullappet은 반려동물의 건강 상태를 실시간으로 모니터링하고, AI를 기반으로 맞춤형 수면 환경을 추천하는 웨어러블 기반 스마트 시스템이다.
+  심박수, 체온, 위치 데이터를 측정하고, 파이어베이스를 통해 클라우드에 저장하여 애플리케이션에서 언제든지 확인할 수 있다.
+
+* 팀원
+
+  - 박지원 : 웨어러블 기기 담당
+  - 김영우 : 애플리케이션 제작 담당
+  - 안도윤 : 서버 담당
+
+* 주요 기능
+
+  - 웨어러블 기기를 통한 실시간 심박수/체온/위치 측정
+  - 파이어베이스 연동으로 실시간 데이터 전송 및 저장
+  - AI 수면 환경 추천 챗봇 탑재(예정)
+  - 수면 시간 예약 및 건강 알림 기능
+  - 다중 반려동물 관리 기능 지원
+
+* 애플리케이션 디자인(Mongcare)
+
+![image](https://github.com/user-attachments/assets/20c86e6a-dd77-4451-9f8d-ccc3dafec1c2)
+![image](https://github.com/user-attachments/assets/2bc5e4b7-ddee-44b9-8e32-8cd5af9b88bc)
+
+* 선정한 SW Stack
+
+![image](https://github.com/user-attachments/assets/db769a6d-5b6f-4c96-8a24-0e1ebfe4fe9e)
