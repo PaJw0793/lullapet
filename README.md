@@ -1,5 +1,4 @@
 # Lullappet
-2025 code fair high school team
 
 * 개요
 
