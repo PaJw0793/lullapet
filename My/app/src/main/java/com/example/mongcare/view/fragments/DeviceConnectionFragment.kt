@@ -12,7 +12,7 @@ import com.example.mongcare.R
 import com.example.mongcare.databinding.FragmentDeviceConnectionBinding
 import com.example.mongcare.databinding.DeviceConnectionItemBinding
 import com.example.mongcare.viewmodel.DeviceConnectionViewModel
-class DeviceConnectionFragment {
+class DeviceConnectionFragment : Fragment() {
     private lateinit var binding: FragmentDeviceConnectionBinding
     private val viewModel: DeviceConnectionViewModel by viewModels()
 

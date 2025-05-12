@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.databinding.DataBindingUtil
 import com.example.mongcare.R
 import com.example.mongcare.databinding.FragmentDeviceStatusBinding
-import com.example.mongcare.viewmodel.DeviceStatusViewModel
 
 class DeviceStatusFragment : Fragment() {
 
