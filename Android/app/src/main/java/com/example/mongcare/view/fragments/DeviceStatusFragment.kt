@@ -6,23 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.databinding.DataBindingUtil
-import com.example.mongcare.R
 import com.example.mongcare.databinding.FragmentDeviceStatusBinding
+import com.example.mongcare.presenter.devicestatus.DeviceStatusContract
+import com.example.mongcare.presenter.devicestatus.DeviceStatusPresenter
 
-class DeviceStatusFragment : Fragment() {
+class DeviceStatusFragment : Fragment(), DeviceStatusContract.View {
 
     private lateinit var binding: FragmentDeviceStatusBinding
-    private val viewModel: DeviceStatusViewModel by viewModels()
+    private lateinit var presenter: DeviceStatusContract.Presenter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_device_status, container, false)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = viewLifecycleOwner
+        binding = FragmentDeviceStatusBinding.inflate(inflater, container, false)
+        presenter = DeviceStatusPresenter(this)
         return binding.root
     }
 
@@ -30,7 +28,19 @@ class DeviceStatusFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.deviceStatusConfirmButton.setOnClickListener {
-            Toast.makeText(requireContext(), "확인했습니다!", Toast.LENGTH_SHORT).show()
+            presenter.onConfirmClicked()
         }
+
+        binding.deviceStatusBackButton.setOnClickListener {
+            presenter.onBackPressed()
+        }
+    }
+
+    override fun showToast(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun goBack() {
+        requireActivity().onBackPressedDispatcher.onBackPressed()
     }
 }
