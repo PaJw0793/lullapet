@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mongcare.databinding.FragmentWalkTimeBinding
 
-class WalkTimeFragment : Fragment() {
+class AlertFragment : Fragment() {
 
     private var _binding: FragmentWalkTimeBinding? = null
     private val binding get() = _binding!!
