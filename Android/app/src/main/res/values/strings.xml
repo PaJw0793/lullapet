@@ -13,4 +13,19 @@
     <string name="desc_dog2_icon" />
     <string name="desc_dog1_icon" />
     <string name="desc_cat_icon" />
+    <string name="desc_battery_icon" />
+    <string name="desc_battery_percent" />
+    <string name="desc_battery_status" />
+    <string name="desc_battery_status_charging" />
+    <string name="desc_battery_status_discharging" />
+    <string name="desc_battery_status_full" />
+    <string name="desc_battery_status_low" />
+    <string name="desc_battery_status_critical" />
+    <string name="desc_battery_status_unknown" />
+    <string name="desc_battery_status_not_charging" />
+    <string name="desc_battery_status_not_full" />
+    <string name="desc_battery_status_not_low" />
+
+    <!-- Main Fragment -->
+    <string name="heart_rate_graph_title">심박수 그래프</string>
 </resources>
