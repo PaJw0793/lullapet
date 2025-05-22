@@ -9,7 +9,9 @@ android {
     compileSdk = 35
 
     buildFeatures {
+        viewBinding = true
         dataBinding = true
+        mlModelBinding = true
     }
     defaultConfig {
         applicationId = "com.example.mongcare"

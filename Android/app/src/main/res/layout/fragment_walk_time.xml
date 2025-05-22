@@ -55,9 +55,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/inputTimeText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:hour="20"
-        android:minute="0"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- 시간 선택 버튼 -->
     <LinearLayout

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="6dp"
+    android:id="@+id/main_fragment_layout"
     >
     <!-- 상단 앱바 -->
     <RelativeLayout
