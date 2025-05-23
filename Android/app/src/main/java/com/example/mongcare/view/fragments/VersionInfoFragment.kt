@@ -34,4 +34,14 @@ class VersionInfoFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    companion object {
+        fun newInstance(param: Int): VersionInfoFragment {
+            val fragment = VersionInfoFragment()
+            val args = Bundle()
+            args.putInt("param", param)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 }

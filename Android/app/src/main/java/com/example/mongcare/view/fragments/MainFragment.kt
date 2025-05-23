@@ -4,12 +4,16 @@ import androidx.fragment.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import com.example.mongcare.R
 import android.view.ViewGroup
+import android.widget.Button
 import com.example.mongcare.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
+
+    var walkTimeButton:Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -17,6 +21,12 @@ class MainFragment : Fragment() {
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        this.walkTimeButton = view.findViewById<Button>(R.id.walk_time_button)
+
     }
 
     override fun onDestroyView() {
@@ -33,4 +43,6 @@ class MainFragment : Fragment() {
             return fragment
         }
     }
+
+
 }

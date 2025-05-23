@@ -43,4 +43,14 @@ class DeviceStatusFragment : Fragment(), DeviceStatusContract.View {
     override fun goBack() {
         requireActivity().onBackPressedDispatcher.onBackPressed()
     }
+
+    companion object {
+        fun newInstance(param: Int): DeviceStatusFragment {
+            val fragment = DeviceStatusFragment()
+            val args = Bundle()
+            args.putInt("param", param)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 }

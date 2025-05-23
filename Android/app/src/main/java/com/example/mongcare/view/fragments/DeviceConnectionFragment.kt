@@ -49,4 +49,14 @@ class DeviceConnectionFragment : Fragment(), DeviceConnectionContract.View {
     override fun showToast(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
     }
+
+    companion object {
+        fun newInstance(param: Int): DeviceConnectionFragment {
+            val fragment = DeviceConnectionFragment()
+            val args = Bundle()
+            args.putInt("param", param)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import com.example.mongcare.databinding.FragmentSettingsBinding
 
@@ -43,5 +44,14 @@ class SettingsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    companion object {
+        fun newInstance(param: Int): SettingsFragment {
+            val fragment = SettingsFragment()
+            val args = Bundle()
+            args.putInt("param", param)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

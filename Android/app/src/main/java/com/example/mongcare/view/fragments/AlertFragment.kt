@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.mongcare.databinding.FragmentWalkTimeBinding
+import com.example.mongcare.view.fragments.WalkTimeFragment
 
 class AlertFragment : Fragment() {
 
@@ -47,5 +48,14 @@ class AlertFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+    companion object {
+        fun newInstance(param: Int): AlertFragment {
+            val fragment = AlertFragment()
+            val args = Bundle()
+            args.putInt("param", param)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

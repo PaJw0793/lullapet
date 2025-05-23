@@ -103,29 +103,6 @@
             android:padding="16dp">
 
             <!-- 체크박스들: 터치 영역 크기 확장 -->
-            <CheckBox
-                android:id="@+id/walkTime1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="산책 시간 1 (AM.10:00)"
-                android:minHeight="48dp"/>
-
-            <CheckBox
-                android:id="@+id/walkTime2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="산책 시간 2 (PM.1:00)"
-                android:minHeight="48dp"
-                android:layout_marginTop="8dp"/>
-
-            <CheckBox
-                android:id="@+id/walkTime3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="산책 시간 3 (PM.5:00)"
-                android:minHeight="48dp"
-                android:layout_marginTop="8dp"/>
-
             <!-- 추가 버튼 -->
             <Button
                 android:id="@+id/addButton"

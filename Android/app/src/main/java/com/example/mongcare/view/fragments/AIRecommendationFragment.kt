@@ -51,4 +51,14 @@ class AIRecommendationFragment : Fragment(), AIRecommendationContract.View {
     override fun clearInput() {
         binding.aiMessageEditText.text.clear()
     }
+
+    companion object {
+        fun newInstance(param: Int): AIRecommendationFragment {
+            val fragment = AIRecommendationFragment()
+            val args = Bundle()
+            args.putInt("param", param)
+            fragment.arguments = args
+            return fragment
+        }
+    }
 }

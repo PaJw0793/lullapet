@@ -188,6 +188,7 @@
 
     <!-- 버튼들 -->
     <Button
+        android:id="@+id/ai_sleep_environment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="AI 추천 수면 환경 보기"
@@ -197,19 +198,12 @@
         android:textColor="#000000" />
 
     <Button
+        android:id="@+id/walk_time_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="산책 시간 설정"
         android:textAllCaps="false"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/btn_outline"
-        android:textColor="#000000" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="웨어러블 상태 보기"
-        android:textAllCaps="false"
         android:background="@drawable/btn_outline"
         android:textColor="#000000" />
 
