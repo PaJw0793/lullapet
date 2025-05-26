@@ -1,29 +1,62 @@
 package com.example.mongcare.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.example.mongcare.R
 import com.example.mongcare.databinding.FragmentMainBinding
+import com.example.mongcare.databinding.FragmentWalkTimeBinding
+import com.example.mongcare.view.fragments.MainFragment
 import com.example.mongcare.view.fragments.WalkTimeFragment
 
+enum class PageName {
+    MAIN,
+    WALKTIME,
+    AIRECOMMEND,
+    SETTINGS
+}
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var binding_main: FragmentMainBinding
+    private lateinit var binding_walk: FragmentWalkTimeBinding
 
+    @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = FragmentMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        binding_main = FragmentMainBinding.inflate(layoutInflater)
+        binding_walk = FragmentWalkTimeBinding.inflate(layoutInflater)
 
-        val btn = binding.walkTimeButton
-        btn.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.walk_time_fragment, WalkTimeFragment.newInstance(5))
-                .addToBackStack(null)
-                .commit()
+        setContentView(R.layout.activity_main)
+
+        var view1 = binding_main
+        var view2 = binding_walk
+
+        view1.walkTimeButton.setOnClickListener {
+            setFrag(PageName.WALKTIME.ordinal)
         }
+
+        setFrag(PageName.MAIN.ordinal)
     }
 
+    private fun setFrag(fragNum : Int){
+        val ft = supportFragmentManager.beginTransaction()
+
+        //fragnum에 따라 fragment 교체
+        when(fragNum)
+        {
+            PageName.MAIN.ordinal -> {
+                ft.replace(R.id.fragmentFrame, MainFragment.newInstance(5))
+                    .commit()
+            }
+
+            PageName.WALKTIME.ordinal -> {
+                ft.replace(R.id.fragmentFrame, WalkTimeFragment.newInstance(5))
+                    .commit()
+            }
+        }
+    }
 }

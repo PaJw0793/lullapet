@@ -6,7 +6,7 @@
     android:id="@+id/walk_time_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AlertFragment">
+    tools:context=".view.fragments.WalkTimeFragment">
 
     <!-- 타이틀 -->
     <TextView

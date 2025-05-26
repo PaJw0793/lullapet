@@ -20,13 +20,12 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
+        this.walkTimeButton = view?.findViewById<Button>(R.id.walk_time_button)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.walkTimeButton = view.findViewById<Button>(R.id.walk_time_button)
-
     }
 
     override fun onDestroyView() {
