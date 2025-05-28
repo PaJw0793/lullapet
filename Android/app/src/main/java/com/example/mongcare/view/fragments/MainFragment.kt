@@ -7,12 +7,14 @@ import android.view.View
 import com.example.mongcare.R
 import android.view.ViewGroup
 import android.widget.Button
+import com.example.mongcare.Interfaces.FragmentChange
 import com.example.mongcare.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
+    lateinit var fragmentChange : FragmentChange
     var walkTimeButton:Button? = null
 
     override fun onCreateView(
@@ -21,6 +23,9 @@ class MainFragment : Fragment() {
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         this.walkTimeButton = view?.findViewById<Button>(R.id.walk_time_button)
+        binding.walkTimeButton.setOnClickListener {
+            fragmentChange?.setFrag(1)
+        }
         return binding.root
     }
 
@@ -34,11 +39,12 @@ class MainFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(param: Int): MainFragment {
+        fun newInstance(param: Int, Fragmentch: FragmentChange): MainFragment {
             val fragment = MainFragment()
             val args = Bundle()
             args.putInt("param", param)
             fragment.arguments = args
+            fragment.fragmentChange = Fragmentch
             return fragment
         }
     }

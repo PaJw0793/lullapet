@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.FragmentNavigatorExtras
+import com.example.mongcare.Interfaces.FragmentChange
 import com.example.mongcare.R
 import com.example.mongcare.databinding.FragmentMainBinding
 import com.example.mongcare.databinding.FragmentWalkTimeBinding
@@ -18,7 +19,7 @@ enum class PageName {
     SETTINGS
 }
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), FragmentChange{
 
     private lateinit var binding_main: FragmentMainBinding
     private lateinit var binding_walk: FragmentWalkTimeBinding
@@ -42,14 +43,14 @@ class MainActivity : AppCompatActivity() {
         setFrag(PageName.MAIN.ordinal)
     }
 
-    private fun setFrag(fragNum : Int){
+    override fun setFrag(fragNum : Int){
         val ft = supportFragmentManager.beginTransaction()
 
         //fragnum에 따라 fragment 교체
         when(fragNum)
         {
             PageName.MAIN.ordinal -> {
-                ft.replace(R.id.fragmentFrame, MainFragment.newInstance(5))
+                ft.replace(R.id.fragmentFrame, MainFragment.newInstance(5, this))
                     .commit()
             }
 
