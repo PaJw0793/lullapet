@@ -26,13 +26,16 @@ class MainFragment : Fragment() {
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         this.walkTimeButton = view?.findViewById<Button>(R.id.walk_time_button)
-        this.settingButton = view?.findViewById<Button>(R.id.settings_Button)
         this.aiSleepEnvironmentButton = view?.findViewById<Button>(R.id.ai_sleep_environment_button)
+        this.settingButton = view?.findViewById<Button>(R.id.settings_Button)
         binding.walkTimeButton.setOnClickListener {
             fragmentChange?.setFrag(PageName.WALKTIME.ordinal)
         }
         binding.aiSleepEnvironmentButton.setOnClickListener {
             fragmentChange?.setFrag(PageName.AIRECOMMEND.ordinal)
+        }
+        binding.settingsButton.setOnClickListener {
+            fragmentChange?.setFrag(PageName.SETTINGS.ordinal)
         }
         return binding.root
     }
