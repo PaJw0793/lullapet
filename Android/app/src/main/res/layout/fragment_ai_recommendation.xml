@@ -1,7 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.fragments.AIRecommendationFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <!-- ViewModel 연결 필요 시 여기에 추가 -->
@@ -15,7 +14,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ai_recommendation_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".AIRecommendationFragment">
 
         <!-- 상단 타이틀 -->
         <TextView

@@ -23,12 +23,12 @@
             android:textColor="#000000" />
 
         <!-- 설정 아이콘 자리 (ImageView → View) -->
-        <View
-            android:id="@+id/settingPlaceholder"
+        <Button
+            android:id="@+id/settings_Button"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
-            android:background="#EEEEEE"
+            android:background="@color/black"
             android:contentDescription="Settings" />
     </RelativeLayout>
 

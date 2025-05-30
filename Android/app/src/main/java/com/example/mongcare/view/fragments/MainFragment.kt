@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.example.mongcare.Interfaces.FragmentChange
 import com.example.mongcare.databinding.FragmentMainBinding
+import com.example.mongcare.Interfaces.PageName
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
@@ -16,6 +17,8 @@ class MainFragment : Fragment() {
 
     lateinit var fragmentChange : FragmentChange
     var walkTimeButton:Button? = null
+    var settingButton:Button? = null
+    var aiSleepEnvironmentButton:Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,8 +26,13 @@ class MainFragment : Fragment() {
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater, container, false)
         this.walkTimeButton = view?.findViewById<Button>(R.id.walk_time_button)
+        this.settingButton = view?.findViewById<Button>(R.id.settings_Button)
+        this.aiSleepEnvironmentButton = view?.findViewById<Button>(R.id.ai_sleep_environment_button)
         binding.walkTimeButton.setOnClickListener {
-            fragmentChange?.setFrag(1)
+            fragmentChange?.setFrag(PageName.WALKTIME.ordinal)
+        }
+        binding.aiSleepEnvironmentButton.setOnClickListener {
+            fragmentChange?.setFrag(PageName.AIRECOMMEND.ordinal)
         }
         return binding.root
     }
