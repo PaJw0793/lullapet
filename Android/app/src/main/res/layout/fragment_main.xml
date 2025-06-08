@@ -71,6 +71,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/textHeartRate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="110"
@@ -107,6 +108,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/textTemperature"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="15°C"
@@ -142,6 +144,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/textSleepTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5hour"

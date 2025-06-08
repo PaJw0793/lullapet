@@ -10,6 +10,9 @@ import android.widget.Button
 import com.example.mongcare.Interfaces.FragmentChange
 import com.example.mongcare.databinding.FragmentMainBinding
 import com.example.mongcare.Interfaces.PageName
+import com.example.mongcare.util.FirebaseReadHeartRateExample
+import com.example.mongcare.util.FirebaseReadMotionExample
+import com.example.mongcare.util.FirebaseReadTemperatureExample
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
@@ -42,6 +45,21 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // 심박수 실시간 반영
+        FirebaseReadHeartRateExample.addHeartRateListener { heartRate ->
+            binding.textHeartRate.text = heartRate?.toString() ?: "-"
+        }
+
+        // 체온(여기서는 motion값) 실시간 반영
+        FirebaseReadMotionExample.addMotionListener { motion ->
+            binding.textSleepTime.text = motion?.toString() ?: "-"
+        }
+
+        // 수면시간(여기서는 temperature값) 실시간 반영
+        FirebaseReadTemperatureExample.addTemperatureListener { temperature ->
+            binding.textTemperature.text = temperature?.toString() ?: "-"
+        }
     }
 
     override fun onDestroyView() {
@@ -59,6 +77,4 @@ class MainFragment : Fragment() {
             return fragment
         }
     }
-
-
 }
