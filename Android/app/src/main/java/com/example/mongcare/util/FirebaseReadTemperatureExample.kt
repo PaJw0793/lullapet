@@ -2,6 +2,7 @@
 package com.example.mongcare.util
 
 import com.google.firebase.database.*
+import kotlin.math.roundToInt
 
 object FirebaseReadTemperatureExample {
     fun readTemperature(onResult: (Double?) -> Unit) {
@@ -9,7 +10,8 @@ object FirebaseReadTemperatureExample {
         val ref = database.getReference("sensor/Wearable/device1/sensorData/temperature")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val temperature = snapshot.getValue(Double::class.java)
+                // 값을 소수점 한 자리로 변환
+                val temperature = snapshot.getValue(Double::class.java)?.let { (it * 10).roundToInt() / 10.0 }
                 onResult(temperature)
             }
             override fun onCancelled(error: DatabaseError) {
@@ -23,19 +25,13 @@ object FirebaseReadTemperatureExample {
         val ref = database.getReference("sensor/Wearable/device1/sensorData/temperature")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val temperature = snapshot.getValue(Double::class.java)
+                // 값을 소수점 한 자리로 변환
+                val temperature = snapshot.getValue(Double::class.java)?.let { (it * 10).roundToInt() / 10.0 }
                 onChanged(temperature)
             }
             override fun onCancelled(error: DatabaseError) {
                 onChanged(null)
             }
         })
-    }
-}
-
-// 사용 예시
-fun main() {
-    FirebaseReadTemperatureExample.readTemperature { temperature ->
-        println("temperature: $temperature")
     }
 }

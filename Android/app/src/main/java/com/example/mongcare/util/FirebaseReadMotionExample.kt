@@ -2,6 +2,7 @@
 package com.example.mongcare.util
 
 import com.google.firebase.database.*
+import kotlin.math.roundToInt
 
 object FirebaseReadMotionExample {
     fun readMotion(onResult: (Double?) -> Unit) {
@@ -9,7 +10,8 @@ object FirebaseReadMotionExample {
         val ref = database.getReference("sensor/Wearable/device1/sensorData/motion")
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val motion = snapshot.getValue(Double::class.java)
+                // 값을 소수점 한 자리로 변환
+                val motion = snapshot.getValue(Double::class.java)?.let { (it * 10).roundToInt() / 10.0 }
                 onResult(motion)
             }
             override fun onCancelled(error: DatabaseError) {
@@ -23,19 +25,13 @@ object FirebaseReadMotionExample {
         val ref = database.getReference("sensor/Wearable/device1/sensorData/motion")
         ref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val motion = snapshot.getValue(Double::class.java)
+                // 값을 소수점 한 자리로 변환
+                val motion = snapshot.getValue(Double::class.java)?.let { (it * 10).roundToInt() / 10.0 }
                 onChanged(motion)
             }
             override fun onCancelled(error: DatabaseError) {
                 onChanged(null)
             }
         })
-    }
-}
-
-// 사용 예시
-fun main() {
-    FirebaseReadMotionExample.readMotion { motion ->
-        println("motion: $motion")
     }
 }
