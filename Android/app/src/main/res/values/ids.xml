@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="ai_recommendation_fragment" type="id" />
+    <item name="settings_fragment_layout" type="id" />
 </resources>

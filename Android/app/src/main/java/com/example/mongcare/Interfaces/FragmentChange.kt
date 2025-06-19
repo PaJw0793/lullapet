@@ -7,5 +7,8 @@ enum class PageName {
     MAIN,
     WALKTIME,
     AIRECOMMEND,
-    SETTINGS
+    SETTINGS,
+    DIVICECONNECT,
+    DIVICESTATUS,
+    version
 }

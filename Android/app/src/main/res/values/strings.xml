@@ -26,6 +26,8 @@
     <string name="desc_battery_status_not_full" />
     <string name="desc_battery_status_not_low" />
 
+
+
     <!-- Main Fragment -->
     <string name="heart_rate_graph_title">심박수 그래프</string>
 </resources>
