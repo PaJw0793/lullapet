@@ -10,7 +10,7 @@
 
     <!-- 뒤로가기 버튼 -->
     <ImageButton
-        android:id="@+id/settings_backButton"
+        android:id="@+id/deviceBackButton"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:src="@drawable/ic_arrow_back"
@@ -22,20 +22,23 @@
         android:layout_marginStart="16dp" />
 
     <!-- 상단 제목 -->
+
+    <!-- 기기 연결 상태 확인 버튼 -->
+
     <TextView
         android:id="@+id/settings_title"
         android:layout_width="wrap_content"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="설정"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/settings_backButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toEndOf="@id/deviceBackButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- 기기 연결 상태 확인 버튼 -->
     <Button
         android:id="@+id/settings_deviceStatusButton"
         android:layout_width="0dp"

@@ -73,31 +73,37 @@ class MainActivity : AppCompatActivity(), FragmentChange {
 
             PageName.WALKTIME.ordinal -> {
                 ft.replace(R.id.fragmentFrame, WalkTimeFragment.newInstance(5))
+                    .addToBackStack(null) // 이 줄을 추가합니다.
                     .commit()
             }
 
             PageName.AIRECOMMEND.ordinal -> {
                 ft.replace(R.id.fragmentFrame, AIRecommendationFragment.newInstance(5))
+                    .addToBackStack(null) // 이 줄을 추가합니다.
                     .commit()
             }
 
             PageName.SETTINGS.ordinal -> {
                 ft.replace(R.id.fragmentFrame, SettingsFragment.newInstance(5, this))
+                    .addToBackStack(null) // 이 줄을 추가합니다.
                     .commit()
             }
 
             PageName.DIVICECONNECT.ordinal -> {
                 ft.replace(R.id.fragmentFrame, DeviceConnectionFragment.newInstance(5))
+                    .addToBackStack(null) // 이 줄을 추가합니다.
                     .commit()
             }
 
             PageName.DIVICESTATUS.ordinal -> {
                 ft.replace(R.id.fragmentFrame, DeviceStatusFragment.newInstance(5))
+                    .addToBackStack(null) // 이 줄을 추가합니다.
                     .commit()
             }
 
             PageName.version.ordinal -> {
                 ft.replace(R.id.fragmentFrame, VersionInfoFragment.newInstance(5))
+                    .addToBackStack(null) // 이 줄을 추가합니다.
                     .commit()
             }
         }

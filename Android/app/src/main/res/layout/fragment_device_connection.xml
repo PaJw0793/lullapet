@@ -26,6 +26,7 @@
         <TextView
             android:id="@+id/deviceTitle"
             android:layout_width="wrap_content"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="기기 연결 상태"
             android:textSize="20sp"

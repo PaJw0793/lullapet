@@ -28,6 +28,15 @@ class AIRecommendationFragment : Fragment() {
         _binding = null
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 뒤로가기 버튼 클릭 리스너 추가
+        binding.deviceBackButton.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
     companion object {
         fun newInstance(param: Int): AIRecommendationFragment {
             val fragment = AIRecommendationFragment()

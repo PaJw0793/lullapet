@@ -23,11 +23,10 @@ class VersionInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.versionInfoBackButton.setOnClickListener {
+        // 뒤로가기 버튼 클릭 리스너 추가
+        binding.deviceBackButton.setOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
-
-        binding.versionInfoContent.text = "앱 버전: 1.0.0\n기기 버전: 2.1.3"
     }
 
     override fun onDestroyView() {

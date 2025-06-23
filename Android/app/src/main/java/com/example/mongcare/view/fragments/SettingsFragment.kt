@@ -40,12 +40,17 @@ class SettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Additional setup if needed
+
+        // 뒤로가기 버튼 클릭 리스너 추가
+        binding.deviceBackButton.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
 
     companion object {
         fun newInstance(param: Int, Fragmentch: FragmentChange): SettingsFragment {

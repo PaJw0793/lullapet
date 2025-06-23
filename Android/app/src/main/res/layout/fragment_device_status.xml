@@ -26,20 +26,23 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <!-- 타이틀 -->
+
+        <!-- 배터리 이미지 -->
+
         <TextView
             android:id="@+id/deviceStatusTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:text="강아지1의\n웨어러블 상태 보기/\n기기 연결 확인"
+            android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textAlignment="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/deviceStatusBackButton"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="16dp" />
+            app:layout_constraintHorizontal_bias="0.378"
+            app:layout_constraintStart_toEndOf="@id/deviceStatusBackButton"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- 배터리 이미지 -->
         <ImageView
             android:id="@+id/deviceStatusBatteryImage"
             android:layout_width="120dp"

@@ -24,6 +24,15 @@ class DeviceStatusFragment : Fragment() {
         _binding = null
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // 뒤로가기 버튼 클릭 리스너 추가
+        binding.deviceStatusBackButton.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
     companion object {
         fun newInstance(param: Int): DeviceStatusFragment {
             val fragment = DeviceStatusFragment()
