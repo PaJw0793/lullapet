@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="AI 추천 환경 물어보기"
-                android:backgroundColor="@color/black"
+                android:textColor="@color/black"
                 android:background="@drawable/edittext_background"
                 android:padding="12dp"
                 android:textSize="14sp"

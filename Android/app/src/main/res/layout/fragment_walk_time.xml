@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.WalkTimeFragment">
 
-    <!-- 타이틀 -->
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
@@ -22,7 +21,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
 
-    <!-- 설정 버튼 (접근성 + 터치영역 수정) -->
     <ImageButton
         android:id="@+id/settingsButton"
         android:layout_width="48dp"
@@ -35,7 +33,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- 시간 입력 텍스트 -->
     <TextView
         android:id="@+id/inputTimeText"
         android:layout_width="wrap_content"
@@ -48,7 +45,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"/>
 
-    <!-- 뒤로가기 버튼 -->
     <ImageButton
         android:id="@+id/deviceBackButton"
         android:layout_width="48dp"
@@ -59,7 +55,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- TimePicker -->
     <TimePicker
         android:id="@+id/timePicker"
         android:layout_width="wrap_content"
@@ -71,7 +66,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- 시간 선택 버튼 -->
     <LinearLayout
         android:id="@+id/timeButtonsLayout"
         android:layout_width="wrap_content"
@@ -80,25 +74,8 @@
         app:layout_constraintTop_toBottomOf="@id/timePicker"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"/>
 
-        <Button
-            android:id="@+id/cancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="Cancel" />
-
-        <Button
-            android:id="@+id/okButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="OK"
-            android:layout_marginStart="16dp"/>
-    </LinearLayout>
-
-    <!-- 리스트 카드뷰 -->
     <androidx.cardview.widget.CardView
         android:id="@+id/walkTimesCard"
         android:layout_width="0dp"
@@ -113,13 +90,12 @@
         android:layout_marginEnd="16dp">
 
         <LinearLayout
+            android:id="@+id/walkTimeListContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- 체크박스들: 터치 영역 크기 확장 -->
-            <!-- 추가 버튼 -->
             <Button
                 android:id="@+id/addButton"
                 android:layout_width="wrap_content"
@@ -133,7 +109,6 @@
 
     </androidx.cardview.widget.CardView>
 
-    <!-- 알림 스위치 -->
     <LinearLayout
         android:id="@+id/notificationLayout"
         android:layout_width="wrap_content"
