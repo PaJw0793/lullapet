@@ -25,6 +25,7 @@
     <string name="desc_battery_status_not_charging" />
     <string name="desc_battery_status_not_full" />
     <string name="desc_battery_status_not_low" />
+    <string name="desc_version_info" >0.1v</string>
 
 
 
