@@ -171,7 +171,7 @@
         android:id="@+id/ai_sleep_environment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="AI 추천 수면 환경 보기"
+        android:text="수면 증상 상담 AI"
         android:textAllCaps="false"
         android:layout_marginBottom="8dp"
         android:background="@drawable/btn_outline"

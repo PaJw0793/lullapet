@@ -123,7 +123,7 @@ class WalkTimeFragment : Fragment(), WalkTimeContract.View {
     override fun getWalkTimeListContainer(): ViewGroup {
         return binding.walkTimeListContainer
     }
-    
+
     companion object {
         fun newInstance(param: Int): WalkTimeFragment {
             val fragment = WalkTimeFragment()

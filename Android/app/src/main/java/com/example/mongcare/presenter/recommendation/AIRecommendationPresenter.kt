@@ -1,14 +1,29 @@
 package com.example.mongcare.presenter.recommendation
 
+import com.example.mongcare.module.MistralAiApi
+
 class AIRecommendationPresenter(
-    private val view: AIRecommendationContract.View
+    private val view: AIRecommendationContract.View,
+    apiKey: String
 ) : AIRecommendationContract.Presenter {
+
+    private val mistralApi = MistralAiApi().apply { setApiKey(apiKey) }
 
     override fun onSendClicked(input: String) {
         if (input.isBlank()) return
 
         view.addUserMessage(input)
-        view.addAIMessage("~~~ 이런식으로 하면 강아지가 편안한 숙면을 취할 수 있을 거예요!")
+
+        mistralApi.askQuestion(
+            question = input,
+            onSuccess = { answer ->
+                view.addAIMessage(answer)
+            },
+            onError = { error ->
+                view.addAIMessage("AI 응답 오류: $error")
+            }
+        )
+
         view.clearInput()
     }
 }

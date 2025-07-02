@@ -32,7 +32,7 @@ class VersionInfoFragment : Fragment() {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
-        binding.versionInfoContent.text = R.string.desc_version_info.toString()
+        binding.versionInfoContent.setText(R.string.desc_version_info)
     }
 
     override fun onDestroyView() {
