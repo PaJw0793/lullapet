@@ -1,5 +1,7 @@
 package com.example.mongcare.module
 
+import android.os.Handler
+import android.os.Looper
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import org.json.JSONArray
@@ -43,12 +45,16 @@ class MistralAiApi {
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                onError(e.message ?: "Unknown error")
+                Handler(Looper.getMainLooper()).post {
+                    onError(e.message ?: "Unknown error")
+                }
             }
 
             override fun onResponse(call: Call, response: Response) {
                 if (!response.isSuccessful) {
-                    onError("HTTP ${response.code}")
+                    Handler(Looper.getMainLooper()).post {
+                        onError("HTTP ${response.code}")
+                    }
                     return
                 }
                 val responseBody = response.body?.string()
@@ -60,15 +66,29 @@ class MistralAiApi {
                             val message = choices.getJSONObject(0)
                                 .getJSONObject("message")
                                 .getString("content")
-                            onSuccess(message)
+                            if (message.length > 10000) { // 메시지 길이 제한 (예: 10,000자)
+                                Handler(Looper.getMainLooper()).post {
+                                    onError("Response too large")
+                                }
+                                return
+                            }
+                            Handler(Looper.getMainLooper()).post {
+                                onSuccess(message)
+                            }
                         } else {
-                            onError("No answer found")
+                            Handler(Looper.getMainLooper()).post {
+                                onError("No answer found")
+                            }
                         }
                     } catch (e: Exception) {
-                        onError("Parse error: ${e.message}")
+                        Handler(Looper.getMainLooper()).post {
+                            onError("Parse error: ${e.message}")
+                        }
                     }
                 } else {
-                    onError("Empty response")
+                    Handler(Looper.getMainLooper()).post {
+                        onError("Empty response")
+                    }
                 }
             }
         })

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mongcare.Interfaces.FragmentChange
 import com.example.mongcare.databinding.FragmentAiRecommendationBinding
 import com.example.mongcare.presenter.recommendation.AIRecommendationContract
 import com.example.mongcare.presenter.recommendation.AIRecommendationPresenter
@@ -51,6 +51,31 @@ class AIRecommendationFragment : Fragment(), AIRecommendationContract.View {
         // 반드시 실제 API 키로 교체하세요!
         val mistralApiKey = "69AClj2z5G8TawQvXDrSH9lpCsQNmIAt"
         presenter = AIRecommendationPresenter(this, mistralApiKey)
+
+        // 엔터키 입력 시 메시지 전송 처리
+        binding.aiMessageEditText.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEND ||
+                actionId == EditorInfo.IME_ACTION_DONE ||
+                actionId == EditorInfo.IME_NULL) {
+                val message = binding.aiMessageEditText.text.toString().trim()
+                if (message.isNotEmpty()) {
+                    presenter.onSendClicked(message)
+                    binding.aiMessageEditText.text?.clear()
+                }
+                true
+            } else {
+                false
+            }
+        }
+
+        // 보내기 버튼 클릭 시 메시지 전송
+        binding.aiSendButton.setOnClickListener {
+            val message = binding.aiMessageEditText.text.toString().trim()
+            if (message.isNotEmpty()) {
+                presenter.onSendClicked(message)
+                binding.aiMessageEditText.text?.clear()
+            }
+        }
     }
 
     override fun addUserMessage(message: String) {
@@ -63,7 +88,7 @@ class AIRecommendationFragment : Fragment(), AIRecommendationContract.View {
     }
 
     override fun clearInput() {
-        TODO("Not yet implemented")
+        binding.aiMessageEditText.text?.clear()
     }
 
     companion object {
