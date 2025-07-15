@@ -48,6 +48,10 @@ class AIRecommendationFragment : Fragment(), AIRecommendationContract.View {
             adapter = chatAdapter
         }
 
+        // 테스트용 메시지 추가 (정상 표시 확인용)
+        chatAdapter.addMessage(ChatMessage("User", "안녕하세요! AI에게 무엇이든 물어보세요."))
+        chatAdapter.addMessage(ChatMessage("AI", "안녕하세요! 열심히 작업하고 있습니다. 어떤 도움이 필요하신가요?\n\n(Hello! I'm working hard. What help do you need?)\n\nI'm a model trained to assist with a variety of tasks, from answering questions and providing information to helping with scheduling and reminders. How can I assist you today?\n\n(I'm a model trained to help with a variety of tasks, such as answering questions, providing information, and helping with scheduling and reminders. How can I assist you today?)"))
+
         // 반드시 실제 API 키로 교체하세요!
         val mistralApiKey = "69AClj2z5G8TawQvXDrSH9lpCsQNmIAt"
         presenter = AIRecommendationPresenter(this, mistralApiKey)
@@ -79,12 +83,13 @@ class AIRecommendationFragment : Fragment(), AIRecommendationContract.View {
     }
 
     override fun addUserMessage(message: String) {
-        // ChatAdapter에 메시지 추가
         chatAdapter.addMessage(ChatMessage("User", message))
+        binding.aiChatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
     }
 
     override fun addAIMessage(message: String) {
         chatAdapter.addMessage(ChatMessage("AI", message))
+        binding.aiChatRecyclerView.scrollToPosition(chatAdapter.itemCount - 1)
     }
 
     override fun clearInput() {

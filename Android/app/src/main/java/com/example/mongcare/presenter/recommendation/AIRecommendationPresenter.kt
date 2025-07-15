@@ -16,10 +16,10 @@ class AIRecommendationPresenter(
 
         mistralApi.askQuestion(
             question = input,
-            onSuccess = { answer ->
+            onSuccess = { answer: String ->
                 view.addAIMessage(answer)
             },
-            onError = { error ->
+            onError = { error: String ->
                 view.addAIMessage("AI 응답 오류: $error")
             }
         )

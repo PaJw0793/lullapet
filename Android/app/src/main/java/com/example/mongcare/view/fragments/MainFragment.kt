@@ -13,6 +13,13 @@ import com.example.mongcare.Interfaces.PageName
 import com.example.mongcare.util.FirebaseReadHeartRateExample
 import com.example.mongcare.util.FirebaseReadMotionExample
 import com.example.mongcare.util.FirebaseReadTemperatureExample
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import android.graphics.Color
+import java.util.LinkedList
 
 class MainFragment : Fragment() {
     private var _binding: FragmentMainBinding? = null
@@ -33,13 +40,13 @@ class MainFragment : Fragment() {
         this.settingButton = view?.findViewById<Button>(R.id.settings_Button)
 
         binding.walkTimeButton.setOnClickListener {
-            fragmentChange?.setFrag(PageName.WALKTIME.ordinal)
+            fragmentChange.setFrag(PageName.WALKTIME.ordinal)
         }
         binding.aiSleepEnvironmentButton.setOnClickListener {
-            fragmentChange?.setFrag(PageName.AIRECOMMEND.ordinal)
+            fragmentChange.setFrag(PageName.AIRECOMMEND.ordinal)
         }
         binding.settingsButton.setOnClickListener {
-            fragmentChange?.setFrag(PageName.SETTINGS.ordinal)
+            fragmentChange.setFrag(PageName.SETTINGS.ordinal)
         }
         return binding.root
     }
@@ -47,10 +54,53 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 심박수 실시간 반영
+        // 심박수 그래프 관련 초기화
+        val heartRateGraph = view.findViewById<LineChart>(R.id.heartRateGraphPlaceholder)
+        val entries = LinkedList<Entry>()
+        val maxPoints = 40 // 500ms 간격, 약 20초치 데이터
+        val startTime = System.currentTimeMillis()
+        val dataSet = LineDataSet(entries, "").apply {
+            color = Color.BLUE
+            setDrawCircles(false) // 점 없이 선만
+            setDrawValues(false)
+            lineWidth = 2f
+            setDrawFilled(false)
+            setDrawHighlightIndicators(false)
+        }
+        heartRateGraph.data = LineData(dataSet)
+        heartRateGraph.description.isEnabled = false
+        heartRateGraph.legend.isEnabled = false
+        heartRateGraph.axisRight.isEnabled = false
+        heartRateGraph.axisLeft.textColor = Color.BLACK
+        heartRateGraph.xAxis.position = XAxis.XAxisPosition.BOTTOM
+        heartRateGraph.xAxis.textColor = Color.BLACK
+        heartRateGraph.xAxis.setDrawGridLines(false)
+        heartRateGraph.axisLeft.setDrawGridLines(false)
+        heartRateGraph.setTouchEnabled(false)
+        heartRateGraph.setScaleEnabled(false)
+        heartRateGraph.setPinchZoom(false)
+
+        // 500ms마다 마지막 심박수 값만 그래프에 추가
+        var lastHeartRate: Double? = null
         FirebaseReadHeartRateExample.addHeartRateListener { heartRate ->
+            lastHeartRate = heartRate?.toDouble()
             binding.textHeartRate.text = heartRate?.toString() ?: "-"
         }
+        view.post(object : Runnable {
+            override fun run() {
+                val now = System.currentTimeMillis()
+                val x = (now - startTime) / 500f
+                lastHeartRate?.let { hr ->
+                    entries.add(Entry(x, hr.toFloat()))
+                    if (entries.size > maxPoints) entries.removeFirst()
+                    dataSet.notifyDataSetChanged()
+                    heartRateGraph.data.notifyDataChanged()
+                    heartRateGraph.notifyDataSetChanged()
+                    heartRateGraph.invalidate()
+                }
+                view.postDelayed(this, 500)
+            }
+        })
 
         // 체온(여기서는 motion값) 실시간 반영
         FirebaseReadMotionExample.addMotionListener { motion ->
@@ -79,3 +129,4 @@ class MainFragment : Fragment() {
         }
     }
 }
+

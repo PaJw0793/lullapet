@@ -6,4 +6,5 @@ plugins {
     alias(libs.plugins.google.gms.google.services) apply false
 }
 
-// AIzaSyAVlGMy5snFQfKACEiPysTfwuMgGq5cV08 (gemini api key)
+// AIzaSyAVlGMy5snFQfKACEiPysTfwuMgGq5cV08 (gㅋemini api key)
+
