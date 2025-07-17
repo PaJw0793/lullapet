@@ -34,7 +34,9 @@ class MistralAiApi {
             put("messages", JSONArray().apply {
                 put(JSONObject().apply {
                     put("role", "user")
-                    put("content", question)
+                    put("content", question + "넌 지금부터 동물을 돌봐주는 수의사의 관점으로 사용자에게 알기쉽고 친숙하고 존댓말을 사용해서 답변해줘. " +
+                            "그리고 답변은 10000자 이하로 해줘. " +
+                            "그리고 답변은 반드시 한국어로 해줘.")
                 })
             })
             // temperature, max_tokens 등 옵션 필요시 여기에 추가 가능

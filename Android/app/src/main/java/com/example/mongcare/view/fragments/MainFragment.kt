@@ -54,14 +54,14 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 심박수 그래프 관련 초기화
+
         val heartRateGraph = view.findViewById<LineChart>(R.id.heartRateGraphPlaceholder)
         val entries = LinkedList<Entry>()
-        val maxPoints = 40 // 500ms 간격, 약 20초치 데이터
+        val maxPoints = 40
         val startTime = System.currentTimeMillis()
         val dataSet = LineDataSet(entries, "").apply {
             color = Color.BLUE
-            setDrawCircles(false) // 점 없이 선만
+            setDrawCircles(false)
             setDrawValues(false)
             lineWidth = 2f
             setDrawFilled(false)
